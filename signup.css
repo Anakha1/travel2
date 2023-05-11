@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(images/pexels-oleksandr-pidvalnyi-3278215.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150vh;
+    width: 98vw;
+}
+
+.container{
+    background-color: #ffffff38;
+    border-radius: 10px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.34), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    overflow: hidden;
+    width: calc(100vw - 65vw);
+    max-width: 100%;
+    
+}
+
+
+.header h2{
+    color: #105879;
+    margin-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.form{
+    padding: 40px;
+}
+
+.form-control{
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.form-control input{
+    width: 100%;
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    display: block;
+    font-size: 14px;
+    padding: 12px;
+}
+
+
+.form-control input:focus{
+    outline: 0;
+    border-color: lightblue;
+}
+
+.form-control.success input{
+    border-color: #2ecc71;
+}
+
+.form-control.error input{
+    border-color: #e74c3c;
+}
+
+.form-control span{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(76, 152, 219);
+    font-size: 15px;
+    font-weight: 600px;
+    cursor: pointer;
+    user-select: none;
+    font-family: fontAwesome;
+}
+
+.strength-line{
+    position: relative;
+    height: 8px;
+    margin: 10px 0 5px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.5s ease;
+}
+
+#percentage{
+    position: absolute;
+    background-color: green;
+    height: 8px;
+    border-radius: 4px;
+    content: "";
+}
+
+#msg{
+    color: rgba(255, 255, 255, 0);
+    text-align: end;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+
+.validation{
+    background: #fff;
+    padding: 20px 10px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.validation ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.validation ul li{
+    position: relative;
+    list-style: none;
+    font-size: 0.85em;
+    transition: 0.5s;
+}
+
+.validation ul li::before{
+    content: '\f192';
+    width: 20px;
+    height: 10px;
+    font-family: fontAwesome;
+    display: inline-flex;
+}
+
+.validation .invalid{
+    color: red;
+}
+
+.validation .valid{
+    color: green;
+}
+.form-control i{
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    visibility: hidden;
+}
+
+.form-control.success i.fa-circle-check{
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-circle-exclamation{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control small{
+    color: #e74c3c;
+    position: absolute;
+    left: 5px;
+    visibility: hidden;
+}
+
+.form-control.error small{
+    visibility: visible;
+}
+.form .btn{
+    background:linear-gradient(#9face6, #74ebd5);
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    color: black;
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding:10px 0;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 1s ease;
+}
+
+.form .btn:hover {
+    background: linear-gradient(to right, #74ebd5,#9face6);
+}

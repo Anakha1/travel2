@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background:rgba(0,0,0,0.7)url(images/92242.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-blend-mode: darken;
+   
+}
+
+
+.navbar{
+    background:rgba(0,0,0,0.7)url(images/92242.jpg) ;
+    height: 100px;
+
+}
+
+.logo{
+    width: auto;
+    height: 100px;
+}
+
+#navbarSupportedContent{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px ;
+    margin-top: 15px;
+    padding-left: 50%;
+}
+
+
+
+.about-head{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.about-para{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: justify;
+    padding: 10px;
+    
+}
+
+.thingtodo{
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.card-title{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 50%;
+}
+
+.card-body p{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+}
+
+.district-head{
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.district{
+    background-image: url(images/hillstation.jpg);
+    background-size: cover;
+}
+
+
+
+
+.col{
+    padding: 10px;
+}
+
+.dis-head{
+    padding-top: 40px;
+   text-align: center;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   text-decoration: underline;
+}
+
+.dis a{
+    color: white;
+    text-decoration: none;
+}
+
+.dist{
+    width: 100%;
+}
+
+.dis-para{
+    font-size: 20px;
+    text-align: justify;
+}
+
+.sub-dis{
+    text-decoration: underline;
+}
+
+.dis-img{
+    width: 34%;
+}
+
+.login{
+    background-image: url(images/sunset-kerala-aleppay-boat.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-head{
+    margin-top: 90px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(12, 65, 101, 0.523);
+    margin-left: 700px;
+    margin-right: 700px;
+    text-align: center;
+}
+
+
+
+.form{
+    width: 20%;
+    margin-left: 40%;
+}
+
+
+.signup{
+    background-image: url(images/signup.jpeg);
+    background-size: 100%;
+}
+
+.tvm{
+    background-image: url(images/padmanabhswami-temple.jpg);
+    background-size: 110%;
+}
+
+.kochi{
+    background-image: url(images/cover-for-Nightlife-in-Kochi.webp);
+    background-size: 110%;
+}
+
+.alapuzha{
+    background-image: url(images/imagealp.jpg);
+    background-size: 110%;
+}
+
+.calicut{
+    background-image: url(images/kozhikideimg.jpg);
+    background-size: 110%;
+}
+
+.idk{
+    background-image: url(images/idkback.jpg);
+    background-size: 130%;
+}
+
+
+.hotspot{
+    margin-top: -7%;
+}
+
+.for-home{
+    background-color: rgba(155, 151, 151, 0.486);
+    border: 2px solid red;
+    margin-left: 90%;
+}
+footer{
+    background-color: black;
+    height: 200px;
+   
+}
+footer p{
+    color: lightgrey;
+   
+}

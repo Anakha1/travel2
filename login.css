@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(images/gettyimages-1146431497.webp);
+    background-size: cover;
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    width: 98vw;
+}
+
+.container{
+    background-color: #445e4f38;
+    border-radius: 10px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.34), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    overflow: hidden;
+    width: calc(100vw - 65vw);
+    max-width: 100%;
+    
+}
+
+.header h2{
+    color: rgb(4, 121, 94);
+    margin-top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.form{
+    padding: 30px;
+}
+
+.form-control{
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.form-control input{
+    width: 90%;
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    display: block;
+    font-size: 14px;
+    margin-left: 30px;
+    padding: 12px;
+}
+
+
+.form-control input:focus{
+    outline: 0;
+    border-color: lightblue;
+}
+
+.form-control.success input{
+    border-color: #2ecc71;
+}
+
+.form-control.error input{
+    border-color: #e74c3c;
+}
+
+.form-control span{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(5, 85, 95);
+    font-size: 15px;
+    font-weight: 600px;
+    cursor: pointer;
+    user-select: none;
+    font-family: fontAwesome;
+}
+
+.form-control i{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    visibility: hidden;
+}
+
+.form-control.success i.fa-circle-check{
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-circle-exclamation{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control small{
+    color: #e74c3c;
+    position: absolute;
+    left: 35px;
+    visibility: hidden;
+}
+
+.form-control.error small{
+    visibility: visible;
+}
+
+.btn{
+    background:linear-gradient( #b382ca, #0c705e);
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    color: black;
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    padding:10px 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    width: 90%;
+    height: 35px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    transition: all 1s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(to left, #b382ca, #0c705e);
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>CREATE ACCOUNT</h2>
+    </div>
+    <form class="form" id="form">
+        <div class="form-control">
+            <input type="text" name="" id="username" placeholder="Username" style="text-transform: capitalize;" autocomplete="off">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <small>Error Msg</small>
+        </div>
+
+        <div class="form-control">
+            <input type="number" name="" id="phone" placeholder="Phone Number" autocomplete="off">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <small>Error Msg</small>
+        </div>
+
+        <div class="form-control">
+            <input type="email" name="" id="email" placeholder="Email Id" autocomplete="off">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <small>Error Msg</small>
+        </div>
+
+        <div class="form-control">
+            <input type="password" name="" id="password" placeholder="Password" >
+            <span class="fa-solid fa-eye-slash" id="hide-show"></span>
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <small>Error Msg</small>
+        </div>
+
+        <div class="strength-line">
+            <span id="percentage"></span>
+        </div>
+        <p id="msg" class="message-text">Poor</p>
+
+        <div class="validation">
+            
+            <ul>
+                <li class="invalid" id="length">minimum 8 characters </li>
+                    
+                <li class="invalid" id="lowercase">atleast one lowercase character</li>
+                    
+                <li class="invalid" id="uppercase">atleast one uppercase character</li>
+                    
+                <li class="invalid" id="number">atleast one number</li>
+
+                <li class="invalid" id="symbols">atleast one special character</li>
+
+
+
+            </ul>
+        </div>
+
+        <div class="form-control">
+            <input type="password" name="" id="confirmpwd" placeholder="Re-enter Password">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <small>Error Msg</small>
+        </div>
+
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</div>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+
+    const form = document.getElementById('form');
+    const username = document.getElementById('username');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const confirmpwd = document.getElementById('confirmpwd');
+
+let passwordInput = document.getElementById("password");
+let hideShowIcon = document.getElementById("hide-show");
+
+hideShowIcon.addEventListener("click",()=>{
+    const type = passwordInput.getAttribute("type")=== 'password'? 'text' : 'password';
+    passwordInput.setAttribute('type',type);
+
+    if(passwordInput.type=='password'){
+        hideShowIcon.classList.remove("fa-eye");
+        hideShowIcon.classList.add('fa-eye-slash');
+    }else{
+        hideShowIcon.classList.remove('fa-eye-slash');
+        hideShowIcon.classList.add('fa-eye');
+    }
+});
+
+
+passwordInput.addEventListener('keyup',()=>{
+    const patternLowercase = /[a-z]/;
+    const patternUppercase = /[A-Z]/;
+    const patternNumbers= /[\d]/;
+    const patternSymbols = /[!@#$%^&*]/;
+
+    const length = document.getElementById("length");
+    const lowercase = document.getElementById("lowercase");
+    const uppercase = document.getElementById("uppercase");
+    const number = document.getElementById("number");
+    const symbols = document.getElementById("symbols");
+
+    let msg = document.getElementById("msg");
+
+    //validate length
+    if(passwordInput.value.length >=8){
+        length.classList.remove('invalid');
+        length.classList.add('valid');
+    }else{
+        length.classList.add("invalid");
+        length.classList.remove('valid');
+    }
+    
+    //validate lowercase
+    if(passwordInput.value.match(patternLowercase)){
+        lowercase.classList.remove('invalid');
+        lowercase.classList.add('valid');
+    }else{
+        lowercase.classList.add('invalid');
+        lowercase.classList.remove('valid');
+    }
+
+    //validate uppercase
+    if(passwordInput.value.match(patternUppercase)){
+        uppercase.classList.remove('invalid');
+        uppercase.classList.add('valid');
+    }else{
+        uppercase.classList.add('invalid');
+        uppercase.classList.remove('valid');
+    }
+
+    //validate number
+    if(passwordInput.value.match(patternNumbers)){
+        number.classList.remove('invalid');
+        number.classList.add('valid');
+    }else{
+        number.classList.add('invalid');
+        number.classList.remove('valid');
+    }
+
+    //validate symbols
+    if(passwordInput.value.match(patternSymbols)){
+        symbols.classList.remove('invalid');
+        symbols.classList.add('valid');
+    }else{
+        symbols.classList.add('invalid');
+        symbols.classList.remove('valid');
+    }
+
+    let valid = document.getElementsByClassName("valid");
+    let percentage = document.getElementById("percentage");
+
+    percentage.setAttribute("style", "width:" +valid.length / 5*100+ "%");
+
+    if(valid.length<=1){
+        msg.innerHTML ="Poor";
+        msg.style.color="white"
+        percentage.style.background="red";
+    }else if(valid.length == 2){
+        msg.innerHTML="Weak";
+        percentage.style.background="#ffc108";
+    }else if(valid.length == 3){
+        msg.innerHTML="Medium";
+        percentage.style.background="orange";
+    }else {
+        msg.innerHTML="Strong";
+        percentage.style.background="green";
+    }
+});
+
+
+
+    //add event
+
+    form.addEventListener('submit', (event) =>{
+        event.preventDefault();
+        validate();
+    });
+
+
+    const sendData = (usernameVal, successRate, count) => {
+        if(successRate === count){
+            alert('Registration Successful');
+            swal("Welcome " + usernameVal + "!", "Registration Successful", "success");
+        }  
+    }
+
+
+    //for data validation
+
+    const successMsg = (usernameVal) => {
+        let formCon = document.getElementsByClassName('form-control');
+        var count = formCon.length - 1;
+        for(var i = 0; i < formCon.length; i++) {
+            if(formCon[i].className === "form-control success"){
+                var successRate = 0 + i;
+                console.log(successRate);
+                sendData( usernameVal, successRate, count);
+            } else {
+                return false;
+            }
+
+        }
+    }
+
+
+    //email validate
+
+    const isEmail = (emailVal) =>{
+        var atSymbol = emailVal.indexOf("@");
+        if(atSymbol < 1) return false;
+        var dot =emailVal.indexOf('.');
+        if(dot <= atSymbol + 2) return false;
+        if(dot === emailVal.length - 1) return false;
+        return true;
+    }
+
+    
+    //define the validate function
+
+    const validate = () => {
+        
+        const usernameVal = username.value.trim();
+        const phoneVal = phone.value.trim();
+        const emailVal = email.value.trim();
+        const passwordVal = password.value.trim();
+        const confirmpwdVal= confirmpwd.value.trim();
+
+        //validate username
+
+        if(usernameVal === ""){
+            setErrorMsg(username, 'username cannot be blank');
+        }else if(usernameVal.length <= 2){
+            setErrorMsg(username, 'username min 3 characters');
+        }else{
+            setSuccessMsg(username);
+        }
+
+        //validate phone number
+
+        if(phoneVal === ""){
+            setErrorMsg(phone, 'phone cannot be blank');
+        }else if(phoneVal.length != 10){
+            setErrorMsg(phone, 'Not a valid phone number');
+        }else{
+            setSuccessMsg(phone);
+        }
+
+        
+        
+
+        //validate email
+
+        if(emailVal === ""){
+            setErrorMsg(email, 'email cannot be blank');
+        }else if(!isEmail(emailVal)){
+            setErrorMsg(email, 'Not a valid Email');
+        }else{
+            setSuccessMsg(email);
+        }
+
+        //validate password
+
+        if(passwordVal === ""){
+            setErrorMsg(password, 'password cannot be blank');
+        }else if(passwordVal.length <= 8){
+            setErrorMsg(password, 'Minimum 8 characters');
+        }else{
+            setSuccessMsg(password);
+        }
+
+
+        //validate confirm password
+
+        if(confirmpwdVal === ""){
+            setErrorMsg(confirmpwd, 'password cannot be blank');
+        }else if(confirmpwdVal != passwordVal){
+            setErrorMsg(confirmpwd, 'password are not matching');
+        }else{
+            setSuccessMsg(confirmpwd);
+        }
+
+        successMsg(usernameVal);
+
+
+    }
+
+    function setErrorMsg(input, errormsgs) {
+        const formControl = input.parentElement;
+        const small = formControl.querySelector('small');
+        formControl.className = "form-control error";
+        small.innerText = errormsgs;
+    }
+
+    function setSuccessMsg(input){
+        const formControl = input.parentElement;
+        formControl.className = "form-control success";
+
+    }
+
+
+
+</script>
+    
+</body>
+</html>
